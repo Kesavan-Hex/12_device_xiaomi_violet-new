@@ -24,12 +24,10 @@
 
 #define LCD_LED         "/sys/class/backlight/panel0-backlight/"
 #define WHITE_LED       "/sys/class/leds/white/"
+#define BREATH              "breath"
+#define BRIGHTNESS          "brightness"
+#define MAX_BRIGHTNESS      "max_brightness"
 
-#define BREATH          "breath"
-#define BRIGHTNESS      "brightness"
-
-#define MAX_LED_BRIGHTNESS    255
-#define MAX_LCD_BRIGHTNESS    4095
 
 namespace {
 /*
@@ -48,6 +46,22 @@ static void set(std::string path, std::string value) {
 
 static void set(std::string path, int value) {
     set(path, std::to_string(value));
+}
+
+/*
+ * Read max brightness from path and close file.
+ */
+static int getMaxBrightness(std::string path) {
+    std::ifstream file(path);
+    int value;
+
+    if (!file.is_open()) {
+        ALOGW("failed to read from %s", path.c_str());
+        return 0;
+    }
+
+    file >> value;
+    return value;
 }
 
 static uint32_t getBrightness(const LightState& state) {
@@ -84,12 +98,12 @@ static inline uint32_t getScaledBrightness(const LightState& state, uint32_t max
 }
 
 static void handleBacklight(const LightState& state) {
-    uint32_t brightness = getScaledBrightness(state, MAX_LCD_BRIGHTNESS);
-    set(LCD_LED BRIGHTNESS, brightness);
+    uint32_t brightness = getScaledBrightness(state, getMaxBrightness(PANEL_LED MAX_BRIGHTNESS));
+    set(PANEL_LED BRIGHTNESS, brightness);
 }
 
 static void handleNotification(const LightState& state) {
-    uint32_t whiteBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
+    uint32_t notificationBrightness = getScaledBrightness(state, getMaxBrightness(NOTIFICATION_LED MAX_BRIGHTNESS));
 
     /* Disable breathing or blinking */
     set(NOTIFICATION_LED BREATH, 0);
