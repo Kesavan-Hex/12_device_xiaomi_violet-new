@@ -94,8 +94,12 @@ static void handleNotification(const LightState& state) {
     uint32_t whiteBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
 
     /* Disable breathing or blinking */
-    set(WHITE_LED BREATH, 0);
+    set(NOTIFICATION_LED BREATH, 0);
+    set(NOTIFICATION_LED BRIGHTNESS, 0);
 
+    if (!notificationBrightness) {
+        return;
+    }
     switch (state.flashMode) {
         case Flash::HARDWARE:
         case Flash::TIMED:
