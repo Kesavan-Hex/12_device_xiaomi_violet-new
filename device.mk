@@ -27,10 +27,14 @@ $(call inherit-product, vendor/xiaomi/violet/violet-vendor.mk)
 TARGET_SCREEN_HEIGHT := 2340
 TARGET_SCREEN_WIDTH := 1080
 
-
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
+
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service_64
 
 # HIDL
 PRODUCT_PACKAGES += \
