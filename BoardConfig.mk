@@ -17,3 +17,6 @@
 BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/violet
+
+# Inherit from proprietary files
+include vendor/xiaomi/davinci/BoardConfigVendor.mk
