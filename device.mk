@@ -27,6 +27,10 @@ $(call inherit-product, vendor/xiaomi/violet/violet-vendor.mk)
 TARGET_SCREEN_HEIGHT := 2340
 TARGET_SCREEN_WIDTH := 1080
 
+# AID/fs configs
+PRODUCT_PACKAGES += \
+    fs_config_files
+
 # QTI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml

@@ -48,6 +48,9 @@ TARGET_BOARD_PLATFORM := sm6150
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
 
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
+
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
