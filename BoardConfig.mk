@@ -85,3 +85,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
+
+# Recovery
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
