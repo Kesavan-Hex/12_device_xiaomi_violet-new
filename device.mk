@@ -162,6 +162,10 @@ PRODUCT_PACKAGES += \
     libjson \
     libril \
     librilutils
+    
+# RenderScript
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
