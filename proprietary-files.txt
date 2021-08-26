@@ -420,5 +420,10 @@ vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
 
+# Peripheral Manager - sweet RKQ1.200826.002/V12.5.4.0.RKFEUXM:user
+vendor/bin/pm-proxy
+vendor/bin/pm-service
+vendor/lib64/libperipheral_client.so
+
 #SSR
 vendor/bin/ssr_setup
