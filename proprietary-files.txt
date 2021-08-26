@@ -206,3 +206,6 @@ vendor/lib64/camera/fdconfigvideolite.bin
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
+
+#SSR
+vendor/bin/ssr_setup
