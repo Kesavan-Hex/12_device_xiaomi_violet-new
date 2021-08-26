@@ -116,3 +116,6 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # Power
 TARGET_POWER_SET_FEATURE_LIB := libpower_feature.violet
+
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
