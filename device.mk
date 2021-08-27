@@ -109,7 +109,7 @@ PRODUCT_COPY_FILES += \
 # Handheld hardware
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
-    
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -223,6 +223,14 @@ PRODUCT_PACKAGES += \
     libjson \
     libril \
     librilutils
+    
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service
+
+PRODUCT_PACKAGES += \
+    thermal.sm6150
     
 # RenderScript
 PRODUCT_PACKAGES += \
