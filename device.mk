@@ -117,6 +117,10 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0_system
 
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-service
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.3-service.clearkey
@@ -231,7 +235,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     thermal.sm6150
-    
+
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
