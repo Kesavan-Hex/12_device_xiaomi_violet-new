@@ -33,6 +33,18 @@ import init.batterysecret.rc
 import init.mi_thermald.rc
 import /system/etc/init/init.factory.rc
 
+ # Boot time fs tuning
+write /sys/block/sda/queue/iostats 0
+write /sys/block/sda/queue/scheduler cfq
+write /sys/block/sda/queue/iosched/slice_idle 0
+write /sys/block/sda/queue/read_ahead_kb 2048
+write /sys/block/sda/queue/nr_requests 256
+write /sys/block/sde/queue/iostats 0
+write /sys/block/sde/queue/scheduler cfq
+write /sys/block/sde/queue/iosched/slice_idle 0
+write /sys/block/sde/queue/read_ahead_kb 2048
+write /sys/block/sde/queue/nr_requests 256
+
 on early-init
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_wglink audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_wcd_spi audio_stub audio_wcd_core audio_wsa881x audio_hdmi audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_machine_talos audio_wcd937x audio_wcd937x_slave audio_tfa98xx
     write /proc/sys/kernel/sched_boost 1
@@ -117,6 +129,14 @@ service charge_logger /vendor/bin/charge_logger
     oneshot
 
 on property:sys.boot_completed=1
+    # Runtime fs tuning
+    write /sys/block/sda/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/sda/queue/iostats 1
+    write /sys/block/sde/queue/read_ahead_kb 128
+    write /sys/block/sde/queue/nr_requests 128
+    write /sys/block/sde/queue/iostats 1
+
     start charge_logger
 
 on property:ro.boot.dp=0x0 && property:ro.boot.secureboot=1
