@@ -292,6 +292,9 @@ vendor/lib64/camera/fdconfigvideolite.bin
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
 
+# Charger - Imported from sweet-user
+vendor/bin/hvdcp_opti
+
 # CNE -  sweet RKQ1.200826.002/V12.5.4.0.RKFEUXM:user
 -vendor/app/CneApp/CneApp.apk
 -vendor/app/IWlanService/IWlanService.apk
