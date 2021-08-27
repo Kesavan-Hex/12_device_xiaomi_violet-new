@@ -236,8 +236,11 @@ on charger
     mkdir /mnt/vendor/persist/subsys 0770 root system
     wait /dev/block/platform/soc/1da4000.ufshc/by-name/persist
     mkdir /data/vendor/charge_logger 0771 system system
+    wait /dev/block/platform/soc/1da4000.ufshc/by-name/system
+    mount ext4 /dev/block/platform/soc/1da4000.ufshc/by-name/system / ro barrier=1
     start charge_logger
     start leds-sh
+    start vendor.qcom-post-boot
 
 ## import cne init file
 #on post-fs
