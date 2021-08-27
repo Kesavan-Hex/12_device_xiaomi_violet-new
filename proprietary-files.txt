@@ -686,3 +686,6 @@ vendor/lib64/libperipheral_client.so
 
 #SSR
 vendor/bin/ssr_setup
+
+# Xiaomi MAC - Imported from sweet-user 11 RKQ1.200826.002 V12.5.3.0.RKFEUXM
+vendor/bin/nv_mac
