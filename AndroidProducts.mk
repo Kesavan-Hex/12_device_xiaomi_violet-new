@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_violet.mk
+    $(LOCAL_DIR)/spark_violet.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_violet-user \
-    lineage_violet-userdebug \
-    lineage_violet-eng
+    spark_violet-user \
+    spark_violet-userdebug \
+    spark_violet-eng
